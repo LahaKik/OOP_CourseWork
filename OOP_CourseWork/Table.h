@@ -10,21 +10,14 @@ private:
 	QVector<int> offset;
 	int countStack;
 	const int MaxStacks = 6;
-
+	void AddBook(int, int, int);
 
 public:
-	Table(QWidget* Sender, int countStack = 3, QWidget* parent = 0) : QWidget(parent), countStack(countStack)
-	{
-		setAcceptDrops(true);
-		setObjectName("Table");
-		connect(Sender, SIGNAL(complete()), this, SLOT(deferredInit()));
-	}
+	Table(QWidget*, int countStack = 3, QWidget* parent = 0);
 
 protected:
 	void paintEvent(QPaintEvent*) override;
-
 	void dragEnterEvent(QDragEnterEvent*);
-
 	void dropEvent(QDropEvent* e);
 
 signals:
@@ -38,7 +31,6 @@ private slots:
 
 public slots:
 	void DeleteBook(int);
-	void AddBook(int, int, int);
 
 };
 

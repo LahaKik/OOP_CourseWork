@@ -9,7 +9,7 @@ class App : public QApplication
 private:
 	Q_OBJECT
 	GraphicWidget* GW;
-	Rack* rack;
+
 public:
 	App(int, char**);
 };

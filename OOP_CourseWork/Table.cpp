@@ -2,6 +2,12 @@
 #include <qevent.h>
 #include <qmimedata.h>
 
+Table::Table(QWidget* Sender, int countStack, QWidget* parent) : QWidget(parent), countStack(countStack)
+{
+	setAcceptDrops(true);
+	setObjectName("Table");
+	connect(Sender, SIGNAL(complete()), this, SLOT(deferredInit()));
+}
 
 void Table::paintEvent(QPaintEvent*)
 {
@@ -69,7 +75,7 @@ void Table::AddBook(int thick, int Vol, int numStack)
 	connect(this, SIGNAL(answer(bool)), book, SLOT(recieve(bool)));
 }
 
-void Table::deferredInit()
+void Table::deferredInit() //Модуль лишний, созданный чтобы устранить ошибку при вызове ф-ций width(), height(), не решает данную проблему
 {
 	int thickness = 0;
 	stack = QVector<QVector<Book*>>();
@@ -98,7 +104,6 @@ void Table::deferredInit()
 		connect(this, SIGNAL(answer(bool)), book, SLOT(recieve(bool)));
 	}
 
-	
 	emit calculatedThickness(thickness);
 }
 

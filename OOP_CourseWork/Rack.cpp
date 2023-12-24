@@ -3,6 +3,24 @@
 #include <qevent.h>
 #include <qmimedata.h>
 
+Rack::Rack(int countShelf, QWidget* table, QWidget* parent) : CountShelf(countShelf), QWidget(parent)
+{
+	setAcceptDrops(true);
+	setObjectName("Rack");
+	shelf = QVector<QVector<Book*>>();
+	for (size_t i = 0; i < countShelf; i++)
+	{
+		shelf.append(QVector<Book*>());
+		offset.append(0);
+		isFullShelf.append(false);
+	}
+	IsFull = false;
+	lastBook = 0;
+	connect(table, SIGNAL(calculatedThickness(int)), this, SLOT(applyThickness(int)));
+	connect(table, SIGNAL(removeFromRack(int)), this, SLOT(DelBook(int)));
+	connect(this, SIGNAL(deleteBook(int)), table, SLOT(DeleteBook(int)));
+}
+
 void Rack::paintEvent(QPaintEvent*)
 {
 	QPainter painter;
@@ -59,9 +77,6 @@ void Rack::DelBook(int Val)
 		{
 			if (Val == shelf[i][j]->NumVolume)
 			{
-				/*isFullShelf[i] = false;
-				delete shelf[i][j];
-				shelf[i].remove(j);*/
 				shelf[i][j]->hide();
 				break;
 			}

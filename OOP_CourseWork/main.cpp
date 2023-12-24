@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     srand(time(0));
 
     App app(argc, argv);
-    GraphicWidget* gw = new GraphicWidget();
+    
 
 
 

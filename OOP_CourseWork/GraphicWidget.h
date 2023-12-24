@@ -9,6 +9,7 @@ class GraphicWidget : public QWidget
 	Q_OBJECT
 	Rack* rack;
 	Table* table;
+
 public:
 	GraphicWidget(QWidget* parent = nullptr);
 
