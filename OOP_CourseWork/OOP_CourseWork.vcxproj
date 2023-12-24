@@ -94,7 +94,6 @@
     <ClCompile Include="GraphicWidget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rack.cpp" />
-    <ClCompile Include="RasterWindow.cpp" />
     <ClCompile Include="Table.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +101,6 @@
     <QtMoc Include="Book.h" />
     <QtMoc Include="GraphicWidget.h" />
     <QtMoc Include="Rack.h" />
-    <QtMoc Include="RasterWindow.h" />
     <QtMoc Include="Table.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -38,17 +38,11 @@
     <ClCompile Include="Table.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RasterWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="RasterWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="App.h">
       <Filter>Header Files</Filter>
     </QtMoc>
